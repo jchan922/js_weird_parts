@@ -1,8 +1,8 @@
-///////////
-// NOTES //
-///////////
+////////////////////////////////////////////
+///////////// NOTES ////////////////////////
+////////////////////////////////////////////
 
-==== SECTION 2 ====
+==== SECTION 2 - Execution Contexts and Lexical Environments ====
 
 Syntax Parser
 - A program that reads your code and determines validity and executions.
@@ -62,3 +62,53 @@ Asynchronous
 Dynamic Typing
 - Opposite of static typed
 - Javascript figures out what data type is in real time
+
+
+==== SECTION 3 - Types and Operators ====
+
+Primitive Data Types x6
+    Undefined - no set value yet
+    Null - the variable has no value or nothing
+    Boolean - true or false
+    Number - floating point numbers with decimals
+    String - sequence of characters
+    Symbol - ES6
+
+Operators
+    - functions
+
+Operator Precedence
+    - which operator gets called first
+
+Operator Associativity
+    - what order operator functions get called in
+
+Coercion
+    - converting a value from one type to another
+
+    *********
+    **TESTS**
+    *********
+
+    Number values of:
+        Number(true) => 1
+        Number(false) => 0
+        Number(undefined) => NaN
+        Number(null) => 0
+
+    Equality (==):
+        3 == 3 => true
+        "3" == 3 => true
+        false == 0 => true
+        null == 0 => false
+        "" == 0 => true
+        "" == false => true
+
+    Strict Equality (===):
+        - doesn't try to coerce data types
+        3 === 3 => true
+        "3" === "3" => true
+        "3" === 3 => false
+
+Framework
+    -
