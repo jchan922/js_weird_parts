@@ -1,0 +1,39 @@
+///////////
+// NOTES //
+///////////
+
+==== SECTION 2 ====
+
+Syntax Parser
+- A program that reads your code and determines validity and executions.
+- Translates human code to computer instructions
+
+Lexical Environment
+- Where something sits physically in the code you write
+
+Execution Context
+- A wrapper to help manage the code that is running
+    1) Creation Phase on file.js load:
+        Global
+        - Stores functions or variables in memory
+
+        Global Execution Context
+        - Creates:
+            1) Global Object === window object
+            2) var this === window object
+
+        Outer Environment
+        - null at the Global level
+    2) Execution Phase
+        - Runs your code
+
+Hoisting
+- Setup of Memory Space for Variables and Functions to get ready for code to run
+- Entire functions and contents are hoisted in memory
+- Variable values have placeholders set in memory until code reaches it
+
+Javascript & Undefined
+- Undefined is a special value and a special keyword
+- Value of variables when global execution context is run
+- Stored in memory but value is not yet set
+- "I've never set this value"
