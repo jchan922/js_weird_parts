@@ -37,3 +37,28 @@ Javascript & Undefined
 - Value of variables when global execution context is run
 - Stored in memory but value is not yet set
 - "I've never set this value"
+
+Single Threaded
+- One command at a time
+
+Synchronus Execution
+- One at a time in the order they are positioned
+
+Invocation
+- Calling a function
+- Telling a function to run
+
+Variable Environment
+- Where variables live in memory and relative to each other
+
+Scope
+- Where a variable is available in your code
+
+Asynchronous
+- More than one at a time
+- via the Event Loop
+    -however, will not run event loop items in queue until all call stack items are complete
+
+Dynamic Typing
+- Opposite of static typed
+- Javascript figures out what data type is in real time
