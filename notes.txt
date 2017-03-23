@@ -110,5 +110,63 @@ Coercion
         "3" === "3" => true
         "3" === 3 => false
 
-Framework
-    -
+
+
+==== SECTION 4 - Objects and Functions ====
+
+Namespace
+- container for variables and functions
+- to keep variables and functions with same name separate
+
+JSON
+- JavaScript Object Notation
+
+First Class Functions
+- functions can act as a type
+- assign variable names, pass functions as parameters, etc.
+
+Expression
+- a unit of code that results in a value
+
+Arguments
+- parameters you pass to a function
+
+Callback Function
+- function you give to another function to be run when the other function is finished
+- function you invoke calls back by calling the function you gave when it finishes
+
+    **** Callback Example ****
+    function tellMeWhenDone(callback) {
+        var a = 1000;
+        var b = 2000;
+        callback(a, b);                         // pass a and b to callback function
+    }
+
+    tellMeWhenDone(function(a,b){               // invoke tellMeWhenDone w/ annoymous function as callback w/ a, b as agruments
+        console.log('I am done!', a+b);         // run the callback and console log message
+    });
+
+    tellMeWhenDone(function(a,b){
+        console.log('All done!', a,b);
+    });
+
+
+Function Currying
+- creating a copy of a function but with preset parameters
+
+
+
+
+
+
+
+
+
+
+==== SECTION 4 - Objects and Functions ====
+==== SECTION 4 - Objects and Functions ====
+==== SECTION 4 - Objects and Functions ====
+==== SECTION 4 - Objects and Functions ====
+==== SECTION 4 - Objects and Functions ====
+==== SECTION 4 - Objects and Functions ====
+==== SECTION 4 - Objects and Functions ====
