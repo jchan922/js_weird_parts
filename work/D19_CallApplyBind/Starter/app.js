@@ -13,7 +13,6 @@ var person = {
 }
 
 var logName = function(lang1, lang2) {
-
     console.log('Logged: '+this.getFullName());                 // this is the global object
     console.log('Arguments: '+ lang1 + ' ' +lang2);
     console.log('===========');
