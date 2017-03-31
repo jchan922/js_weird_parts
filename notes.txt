@@ -156,6 +156,31 @@ Function Currying
 
 
 
+==== SECTION 5 - Classical vs. Prototypal Inheritance ====
+
+Inheritance
+- one object that gets access to properties and methods of another object
+
+    Classical Inheritance
+    -
+
+    Prototypal Inheritance
+    - Javascript
+
+
+Reflection
+- an object can look at itself and list its properties and methods
+
+
+==== SECTION 6 - Building Objects ====
+
+Function Constructors
+- a normal function that constructs objects
+
+    - using the 'new' keyword operator to construct objects
+        - creates new empty object
+        - automatically points 'this' to new empty object
+        - returns object automatically
 
 
 
@@ -163,10 +188,4 @@ Function Currying
 
 
 
-==== SECTION 4 - Objects and Functions ====
-==== SECTION 4 - Objects and Functions ====
-==== SECTION 4 - Objects and Functions ====
-==== SECTION 4 - Objects and Functions ====
-==== SECTION 4 - Objects and Functions ====
-==== SECTION 4 - Objects and Functions ====
 ==== SECTION 4 - Objects and Functions ====
