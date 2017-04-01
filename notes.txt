@@ -177,14 +177,34 @@ Reflection
 Function Constructors
 - a normal function that constructs objects
 
-    - using the 'new' keyword operator to construct objects
-        - creates new empty object
+    - Using the 'new' keyword operator to construct objects
+        - creates new empty object...
+        - sets prototype of empty object to the prototype property of the function (object constructor) called
         - automatically points 'this' to new empty object
         - returns object automatically
 
+    - 'Object.create' and Pure Prototypal Inheritance
+        - (for some new browers and engines)
+        - creates an empty object...
+        - points the prototype object to the person object
+        - override the person object fields as needed
+        - create object, create an object from that object constructor, point to other objects as it's prototype
+
+    - ES6 and 'class'
+        - 'class' is a definition intially, not an object until 'new' is used
+        - Defines what an object should look like
+        - Object is only created when 'new' is used
+        - 'extends' keyword sets the prototype for objects created by particular class
 
 
 
+
+
+
+Polyfill
+- code that adds a feature that the engine may lack
+    - EX. recreate what 'Object.create' is doing but with 'new'
+    - this ensures code can run
 
 
 
