@@ -208,4 +208,8 @@ Polyfill
 
 
 
-==== SECTION 4 - Objects and Functions ====
+==== SECTION 7 - Odds and Ends ====
+
+Initialization
+- data to begin state when loaded
+- placeholder data
