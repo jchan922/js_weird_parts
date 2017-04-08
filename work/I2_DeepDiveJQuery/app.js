@@ -1,11 +1,11 @@
 
 // JQUERY
 
-var q = $("ul.people li");  // $ = jQuery
+var q = $("ul.people").addClass("newclass").removeClass("people");  // $ = jQuery
                             // "find all li children of ul's that have a class='people' inside the DOM tree"
 
-console.log(q);             // console.logs =>
-                                // jQuery.fn.init[3]
+console.log(q);             // console.logs => jQuery.fn.init[3]
+
     // jQuery is a function
         // jQuery is invoked with "ul.people li" passed in as selector argument
         // return new jQuery.fn.init( selector, context )

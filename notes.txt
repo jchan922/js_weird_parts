@@ -213,3 +213,14 @@ Polyfill
 Initialization
 - data to begin state when loaded
 - placeholder data
+
+
+==== SECTION 8 - Examining Famous Frameworks and Libraries ====
+
+Method Chaining
+- calling on method after another
+- each method affects the parent object
+- only if the methods return itself
+
+
+==== SECTION 9 - Let's Build A Framework/Library ====
