@@ -1,2 +1,9 @@
+// new Greetr object
 var g = G$('John', 'Doe');
-g.greet().setLang('es').greet(true);
+
+// jQuery selector
+var headline = $("#greeting");
+console.log(headline);
+
+g.renderGreeting(headline);
+g.greet().setLang('es').greet(true).log();

@@ -10,78 +10,68 @@
     // GREETR will take jQuery objects and will fill element with greeting text
 
 
-// Structuring safe code with an IFEE...
-    // pass through the window and jQuery objects into the IFEE
-(function ( global, $ ) {
-    console.log("**** GREETR ON ****");
+;(function(global, $) {
 
-    // Greetr calls new Greetr.init
-
-    // Thus, Greetr.init is actually just a new Greetr object
-        // Greetr.init is a function constructor
-        // returns a new Greetr object
-        // Greeter.init.prototype = should point to Greetr.prototype each time
-
-    var Greetr = function( firstName, lastName, language) {
-
-        return new Greetr.init( firstName, lastName, language );
-
+    // 'new' an object
+    var Greetr = function(firstName, lastName, language) {
+        return new Greetr.init(firstName, lastName, language);
     }
 
-    var supportedLangs = ['en', 'es'],
-        greetings = {
-            en: "Hello",
-            es: "Hola"
-        },
-        formalGreetings = {
-            en: "Greetings",
-            es: "Saludos"
-        },
-        logMessages = {
-            en: "Logged in",
-            es: "Inicio sesion"
-        };
+    // hidden within the scope of the IIFE and never directly accessible
+    var supportedLangs = ['en', 'es'];
 
-    // Function constructor that creates an object
-    Greetr.init = function( firstName, lastName, language ) {
+    // informal greetings
+    var greetings = {
+        en: 'Hello',
+        es: 'Hola'
+    };
 
-        var self = this;
+    // formal greetings
+    var formalGreetings = {
+        en: 'Greetings',
+        es: 'Saludos'
+    };
 
-        // set object properties to arguments passed in, otherwise set defaults
-        self.firstName = firstName || '';
-        self.lastName = lastName || '';
-        self.language = language || 'en';
+    // logger messages
+    var logMessages = {
+        en: 'Logged in',
+        es: 'Inició sesión'
+    };
 
-    }
-
-    // Prototype factory methods attached to any objects created by Greetr.init
+    // prototype holds methods (to save memory space)
     Greetr.prototype = {
 
+        // 'this' refers to the calling object at execution time
         fullName: function() {
             return this.firstName + ' ' + this.lastName;
         },
 
         validate: function() {
-            // check if object language is not supported
-            if (supportedLangs.indexOf(this.language) === -1) {
-                throw "Invalid language";   // if not found in supportedLangs array, throw error
-            }
+            // check that is a valid language
+            // references the externally inaccessible 'supportedLangs' within the closure
+             if (supportedLangs.indexOf(this.language)  === -1) {
+                throw "Invalid language";
+             }
         },
 
+        // retrieve messages from object by referring to properties using [] syntax
         greeting: function() {
             return greetings[this.language] + ' ' + this.firstName + '!';
         },
 
         formalGreeting: function() {
-            return formalGreetings[this.language] + ', ' + this.fullName() + '.';
+            return formalGreetings[this.language] + ', ' + this.fullName();
         },
 
+        // chainable methods return their own containing object
         greet: function(formal) {
             var msg;
 
+            // if undefined or null it will be coerced to 'false'
             if (formal) {
                 msg = this.formalGreeting();
-            } else {
+            }
+            else {
                 msg = this.greeting();
             }
 
@@ -89,57 +79,78 @@
                 console.log(msg);
             }
 
+            // 'this' refers to the calling object at execution time
+            // makes the method chainable
             return this;
-
         },
+
         log: function() {
             if (console) {
                 console.log(logMessages[this.language] + ': ' + this.fullName());
             }
 
+            // make chainable
             return this;
         },
 
         setLang: function(lang) {
+
+            // set the language
             this.language = lang;
+
+            // validate
             this.validate();
 
+            // make chainable
             return this;
         },
 
-        renderGreeting: function(selector, formal){
-            // validate if jQuery available
+        HTMLGreeting: function(selector, formal) {
             if (!$) {
                 throw 'jQuery not loaded';
             }
-            // validate if jQuery selector passed in
-            if (!selector){
+
+            if (!selector) {
                 throw 'Missing jQuery selector';
             }
 
-            // set greeting to use
+            // determine the message
             var msg;
             if (formal) {
                 msg = this.formalGreeting();
-            } else {
+            }
+            else {
                 msg = this.greeting();
             }
 
-            // take selector from app.js and set it's html to msg
+            // inject the message in the chosen place in the DOM
             $(selector).html(msg);
+
+            // make chainable
             return this;
         }
 
     };
 
-    // Any objects created by Greetr.init, should point to Greetr.prototype for it's prototype chain
+    // the actual object is created here, allowing us to 'new' an object without calling 'new'
+    Greetr.init = function(firstName, lastName, language) {
+
+        var self = this;
+        self.firstName = firstName || '';
+        self.lastName = lastName || '';
+        self.language = language || 'en';
+
+        self.validate();
+
+    }
+
+    // trick borrowed from jQuery so we don't have to use the 'new' keyword
     Greetr.init.prototype = Greetr.prototype;
 
-    // global is the window object
-    // Attach Greetr to global object with alias G$
+    // attach our Greetr to the global object, and provide a shorthand '$G' for ease our poor fingers
     global.Greetr = global.G$ = Greetr;
 
-}( window, jQuery ));
+}(window, jQuery));
 
 
 //////////////////////
